@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Qwen-VL：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2308.12966Qwen-V2：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2409.12191NaViT：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2307.06304MM-LLMs综述： https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2401.13601Qwen2.5-VL：Qwen2.5 VL！Qwen2.5 VL！Qwen2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qwen-VL进化">
+<meta property="og:url" content="http://example.com/2026/01/02/Qwen-VL%E8%BF%9B%E5%8C%96/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Qwen-VL：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2308.12966Qwen-V2：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2409.12191NaViT：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2307.06304MM-LLMs综述： https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2401.13601Qwen2.5-VL：Qwen2.5 VL！Qwen2.5 VL！Qwen2.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pica.zhimg.com/v2-67cd12003a709b6003164b7b2869ede8_1440w.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/v2-07b8f4f736fc2a56a5f3e632b87d1224_1440w.jpg">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/img_convert/c4f9d1656831bbffa99efb346f3adb47.png">
+<meta property="article:published_time" content="2026-01-02T18:59:44.000Z">
+<meta property="article:modified_time" content="2026-01-17T10:14:33.710Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VLM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pica.zhimg.com/v2-67cd12003a709b6003164b7b2869ede8_1440w.jpg">
+  
+  
+  
+  <title>Qwen-VL进化 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WangDarui</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Qwen-VL进化"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-02 18:59" pubdate>
+          January 2, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Qwen-VL进化</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Qwen-VL：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2308.12966">https://arxiv.org/pdf/2308.12966</a><br>Qwen-V2：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2409.12191">https://arxiv.org/pdf/2409.12191</a><br>NaViT：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2307.06304">https://arxiv.org/pdf/2307.06304</a><br>MM-LLMs综述： <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2401.13601">https://arxiv.org/pdf/2401.13601</a><br>Qwen2.5-VL：Qwen2.5 VL！Qwen2.5 VL！Qwen2.5 VL！</p>
+<p>qwen 1~2: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25267823390">https://zhuanlan.zhihu.com/p/25267823390</a><br>qwen3: <a target="_blank" rel="noopener" href="https://modelscope.csdn.net/68ef72108867235e1392572a.html">https://modelscope.csdn.net/68ef72108867235e1392572a.html</a><br><img src="https://pica.zhimg.com/v2-67cd12003a709b6003164b7b2869ede8_1440w.jpg" srcset="/img/loading.gif" lazyload ></p>
+<h1 id="Qwen-VL"><a href="#Qwen-VL" class="headerlink" title="Qwen-VL"></a>Qwen-VL</h1><p>Qwen-VL 是以Qwen-7B Base为主干模型，通过引入视觉感知器（Visual receptor）来增强视觉特征的感知能力。视觉感知器包括一个跟语言模型对齐视觉编码器（visual encoder）和一个位置感知的适配器（position- aware adapter）。套用上面的通用多模态框架，Qwen-VL包括了典型的前3个模块：</p>
+<h3 id="模态编码器（Modality-Encoder）"><a href="#模态编码器（Modality-Encoder）" class="headerlink" title="模态编码器（Modality Encoder）"></a>模态编码器（Modality Encoder）</h3><p>  视觉编码器（visual encoder），只用来编码图片视觉特征。 ViT架构（Vision Transformer），ViT的网络设置和初始化参数使用了OpenCLIP预训练好的ViT-bigG模型。<br>  Qwen-VL 可接受的图像分辨率为 448*448：（W: 448, H: 448， C: 3）。<br>  ViT参数：patch_size : 14 ，channel：1664</p>
+<h3 id="输入投影层（Input-Projector）："><a href="#输入投影层（Input-Projector）：" class="headerlink" title="输入投影层（Input Projector）："></a>输入投影层（Input Projector）：</h3><p>位置感知的适配器（position-aware adapter）Q-former。经过上述ViT处理后，对于 448<em>448 分辨率的图像，生成一个向量维度为1664的长度为1024的序列，使用*<em>2D绝对位置编码</em></em>。为了压缩视觉token的输入长度，Qwen-VL引入了一个Adapter来压缩图像特征。这个Adaper就是一个随机初始化的单层Cross-Attention模块。该模块使用一组可学习的query向量，将来自ViT的图像特征作为Key向量。通过Cross-Attention操作后将视觉特征序列压缩到固定的256长度。</p>
+<h3 id="LLM主干网络（LLM-Backbone）："><a href="#LLM主干网络（LLM-Backbone）：" class="headerlink" title="LLM主干网络（LLM Backbone）："></a>LLM主干网络（LLM Backbone）：</h3><p>Qwen-7B Base 模型</p>
+<h1 id="Qwen-VL2"><a href="#Qwen-VL2" class="headerlink" title="Qwen-VL2"></a>Qwen-VL2</h1><img src="https://pica.zhimg.com/v2-07b8f4f736fc2a56a5f3e632b87d1224_1440w.jpg" srcset="/img/loading.gif" lazyload />
+除了主干模型的升级，论文中还提到了一些重要的升级点，总结如下：
+
+<h3 id="模态编码层"><a href="#模态编码层" class="headerlink" title="模态编码层"></a>模态编码层</h3><ol>
+<li><p>采用原生动态分辨率：<br>单一分辨率 -&gt; 任意分辨率， Qwen-VL模型输入只接受单一分辨率的图片，Qwen2-VL可输入不同分辨率的图像，避免了Vision数据适配单一分辨率而导致的失真问题。</p>
+</li>
+<li><p>Vision Encoder位置编码：<br>绝对位置编码 -&gt; 相对位置编码，从二维三角位置编码升级到二维RoPE位置编码，能够支持视频、不同分辨率图片等，RoPE对长序列有更好的泛化能力，有利于提升对长序列Vision特征的建模能力</p>
+</li>
+</ol>
+<h3 id="输入投影层"><a href="#输入投影层" class="headerlink" title="输入投影层"></a>输入投影层</h3><p>输入投影层：压缩Vision token + MLP Adapter<br>Qwen2-VL通过原生动态分辨率方法处理的每个图片的token序列是变长的，无法使用Cross-Attention架构做特征压缩处理。Qwen2-VL采用了一种更简单的压缩方法：对空间位置临近的patch 特征做拼接，再经过2层MLP线性变换，这样将原来长度为 n&#x2F;4<br> 的序列 ，最终将压缩后的特征序列输入给LLM模型。</p>
+<h3 id="LLM主体模型位置编码："><a href="#LLM主体模型位置编码：" class="headerlink" title="LLM主体模型位置编码："></a>LLM主体模型位置编码：</h3><ol>
+<li>1D-&gt;3D RoPE，引入多模态旋转位置编码技术（M-RoPE），刻画多模态(时序、高、宽)三维数据。进一步提升对时空数据的建模能力。</li>
+<li>统一多模态数据：<br>单图片 -&gt; 统一图片和视频，统一框架处理图片和视频数据，进一步提升对真实世界认知和理解能力</li>
+<li>训练数据：<br>1.4B -&gt; 1.4T，数据量提升了3个量级，同时数据覆盖了多领域任务</li>
+</ol>
+<h1 id="Qwen-VL3"><a href="#Qwen-VL3" class="headerlink" title="Qwen-VL3"></a>Qwen-VL3</h1><img src="https://i-blog.csdnimg.cn/img_convert/c4f9d1656831bbffa99efb346f3adb47.png" srcset="/img/loading.gif" lazyload />
+一是采用 MRoPE-Interleave，原始MRoPE将特征维度按照时间（t）、高度（h)和宽度（w)的顺序分块划分，使得时间信息全部分布在高频维度上。研究团队在 Qwen3-VL 中**采取了 t,h,w 交错分布**的形式，实现对时间，高度和宽度的全频率覆盖，这样更加鲁棒的位置编码能够保证模型在图片理解能力相当的情况下，提升对长视频的理解能力；
+
+<p>二是引入 DeepStack 技术，融合 ViT 多层次特征，提升视觉细节捕捉能力和图文对齐精度；沿用** DeepStack **的核心思想，将以往多模态大模型（LMM）单层输入视觉tokens的范式，改为在大型语言模型 (LLM) 的多层中进行注入。这种多层注入方式旨在实现更精细化的视觉理解。<br>在此基础上，官方进一步优化了视觉特征 token 化的策略。具体而言，Qwen团队将来自 ViT 不同层的视觉特征进行 token 化，并以此作为视觉输入。这种设计能够有效保留从底层（low-level）到高层（high-level）的丰富视觉信息。实验结果表明，该方法在多种视觉理解任务上均展现出显著的性能提升。</p>
+<p>三是将原有的视频时序建模机制 T-RoPE 升级为 文本时间戳对齐机制。该机采用“时间戳-视频帧”交错的输入形式，实现帧级别的时间信息与视觉内容的细粒度对齐。同时，模型原生支持“秒数”与“时:分:秒”（HMS）两种时间输出格式。这一改进显著提升了模型对视频中动作、事件的语义感知与时间定位精度，使其在复杂时序推理任务——如事件定位、动作边界检测、跨模态时间问答等——中表现更稳健、响应更精准。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/" class="category-chain-item">原理</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/VLM/" class="print-no-link">#VLM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Qwen-VL进化</div>
+      <div>http://example.com/2026/01/02/Qwen-VL进化/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 2, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/07/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" title="总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">总结</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/20/%E8%AE%A4%E7%9F%A5%E8%A7%89%E9%86%92/" title="认知觉醒">
+                        <span class="hidden-mobile">认知觉醒</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="AttentionAttention 1234567891011121314151617181920212223242526272829303132import torchimport torch.nn as nnimport torch.nn.functional as Fclass Attention(nn.Module):    def __init__(self, dim):">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见问题记录">
+<meta property="og:url" content="http://example.com/2025/12/20/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AttentionAttention 1234567891011121314151617181920212223242526272829303132import torchimport torch.nn as nnimport torch.nn.functional as Fclass Attention(nn.Module):    def __init__(self, dim):">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/1280px-Transformer%2C_full_architecture.png">
+<meta property="article:published_time" content="2025-12-20T18:59:44.000Z">
+<meta property="article:modified_time" content="2026-01-17T10:14:33.716Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/1280px-Transformer%2C_full_architecture.png">
+  
+  
+  
+  <title>常见问题记录 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WangDarui</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="常见问题记录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-20 18:59" pubdate>
+          December 20, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">常见问题记录</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><h3 id="Attention-1"><a href="#Attention-1" class="headerlink" title="Attention"></a>Attention</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/1280px-Transformer%2C_full_architecture.png" srcset="/img/loading.gif" lazyload alt="图片alt" title="Attention 架构"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Attention</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, dim</span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.dim = dim<br>        <span class="hljs-variable language_">self</span>.qkv = nn.Linear(dim, dim * <span class="hljs-number">3</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x, mask=<span class="hljs-literal">None</span></span>):<br>        <span class="hljs-comment"># 1. 线性变换后解包</span><br>        <span class="hljs-comment"># qkv_res 形状: (batch, seq_len, dim * 3)</span><br>        qkv_res = <span class="hljs-variable language_">self</span>.qkv(x)<br>        <br>        <span class="hljs-comment"># 拆分为 q, k, v (每个形状: batch, seq_len, dim)</span><br>        q, k, v = torch.chunk(qkv_res, <span class="hljs-number">3</span>, dim=-<span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># 2. 计算打分 (Scalable Dot-Product)</span><br>        <span class="hljs-comment"># k.transpose(-2, -1) 确保维度变为 (batch, dim, seq_len)</span><br>        <span class="hljs-comment"># d_k 通常取 head_dim，这里简化为 dim</span><br>        d_k = q.size(-<span class="hljs-number">1</span>)<br>        attn_logits = torch.matmul(q, k.transpose(-<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)) / (d_k ** <span class="hljs-number">0.5</span>)<br><br>        <span class="hljs-comment"># 3. Mask 处理</span><br>        <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-comment"># 建议使用 masked_fill 替代直接相加，更稳定</span><br>            attn_logits = attn_logits.masked_fill(mask == <span class="hljs-number">0</span>, <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;-inf&#x27;</span>))<br><br>        <span class="hljs-comment"># 4. Softmax 与 加权求和</span><br>        score = F.softmax(attn_logits, dim=-<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> torch.matmul(score, v)<br></code></pre></td></tr></table></figure>
+<h3 id="Multihead-Attention"><a href="#Multihead-Attention" class="headerlink" title="Multihead Attention"></a>Multihead Attention</h3><h3 id="Multil-Query-Attention"><a href="#Multil-Query-Attention" class="headerlink" title="Multil Query Attention"></a>Multil Query Attention</h3><h3 id="Multi-Group-Attention"><a href="#Multi-Group-Attention" class="headerlink" title="Multi Group Attention"></a>Multi Group Attention</h3><h2 id="Position-Embading"><a href="#Position-Embading" class="headerlink" title="Position Embading"></a>Position Embading</h2><h3 id="RoPE"><a href="#RoPE" class="headerlink" title="RoPE"></a>RoPE</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">precompute_freqs_cis</span>(<span class="hljs-params">dim: <span class="hljs-built_in">int</span>, end: <span class="hljs-built_in">int</span>, theta: <span class="hljs-built_in">float</span> = <span class="hljs-number">10000.0</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    预计算旋转频率</span><br><span class="hljs-string">    dim: 每个 Head 的维度 (head_dim)</span><br><span class="hljs-string">    end: 最大序列长度 (max_seq_len)</span><br><span class="hljs-string">    theta: 基数，控制旋转速度</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 1. 计算频率步长: theta^&#123;-2i/d&#125;</span><br>    <span class="hljs-comment"># 每一对维度共享一个频率，所以只算 dim // 2 个</span><br>    freqs = <span class="hljs-number">1.0</span> / (theta ** (torch.arange(<span class="hljs-number">0</span>, dim, <span class="hljs-number">2</span>)[: (dim // <span class="hljs-number">2</span>)].<span class="hljs-built_in">float</span>() / dim))<br>    <br>    <span class="hljs-comment"># 2. 生成位置索引 t = [0, 1, 2, ..., end-1]</span><br>    t = torch.arange(end, device=freqs.device)<br>    <br>    <span class="hljs-comment"># 3. 计算相位矩阵: 每个位置对应的每个维度的弧度</span><br>    <span class="hljs-comment"># shape: [end, dim // 2]</span><br>    freqs = torch.outer(t, freqs).<span class="hljs-built_in">float</span>()<br>    <br>    <span class="hljs-comment"># 4. 转换为复数坐标形式: cos(theta) + i*sin(theta)</span><br>    <span class="hljs-comment"># 这在数学上等价于旋转矩阵</span><br>    freqs_cis = torch.polar(torch.ones_like(freqs), freqs)<br>    <span class="hljs-keyword">return</span> freqs_cis<br><br><span class="hljs-comment"># Version 1： 利用复数乘法的性质（ $(a+bi)(c+di)$ ）来高效实现旋转。</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">reshape_for_broadcast</span>(<span class="hljs-params">freqs_cis: torch.Tensor, x: torch.Tensor</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;调整 freqs_cis 形状以匹配 x 的维度 (batch, head, seq_len, dim)&quot;&quot;&quot;</span><br>    ndim = x.ndim<br>    <span class="hljs-keyword">assert</span> <span class="hljs-number">0</span> &lt;= <span class="hljs-number">1</span> &lt; ndim<br>    <span class="hljs-keyword">assert</span> freqs_cis.shape == (x.shape[<span class="hljs-number">1</span>], x.shape[-<span class="hljs-number">1</span>])<br>    shape = [d <span class="hljs-keyword">if</span> i == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> i == ndim - <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> i, d <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(x.shape)]<br>    <span class="hljs-keyword">return</span> freqs_cis.view(*shape)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">apply_rotary_emb</span>(<span class="hljs-params">xq: torch.Tensor, xk: torch.Tensor, freqs_cis: torch.Tensor</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    xq, xk: [batch, seq_len, n_heads, head_dim]</span><br><span class="hljs-string">    freqs_cis: [seq_len, head_dim // 2]</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 1. 将实数向量转为复数对</span><br>    <span class="hljs-comment"># [batch, seq_len, n_heads, head_dim//2, 2] -&gt; 转化为复数</span><br>    xq_ = torch.view_as_complex(xq.<span class="hljs-built_in">float</span>().reshape(*xq.shape[:-<span class="hljs-number">1</span>], -<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br>    xk_ = torch.view_as_complex(xk.<span class="hljs-built_in">float</span>().reshape(*xk.shape[:-<span class="hljs-number">1</span>], -<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br><br>    <span class="hljs-comment"># 2. 准备频率矩阵</span><br>    freqs_cis = reshape_for_broadcast(freqs_cis, xq_)<br><br>    <span class="hljs-comment"># 3. 执行复数乘法（即执行旋转）并转回实数</span><br>    xq_out = torch.view_as_real(xq_ * freqs_cis).flatten(<span class="hljs-number">3</span>)<br>    xk_out = torch.view_as_real(xk_ * freqs_cis).flatten(<span class="hljs-number">3</span>)<br><br>    <span class="hljs-keyword">return</span> xq_out.type_as(xq), xk_out.type_as(xk)<br><br><span class="hljs-comment"># Version 2： 直接使用实数矩阵操作。</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">rotate_half</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;将 [x1, x2, x3, x4] 变为 [-x2, x1, -x4, x3]&quot;&quot;&quot;</span><br>    x1 = x[..., : x.shape[-<span class="hljs-number">1</span>] // <span class="hljs-number">2</span>]<br>    x2 = x[..., x.shape[-<span class="hljs-number">1</span>] // <span class="hljs-number">2</span> :]<br>    <span class="hljs-keyword">return</span> torch.cat((-x2, x1), dim=-<span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">apply_rotary_pos_emb</span>(<span class="hljs-params">q, k, cos, sin</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    q, k: [batch, n_heads, seq_len, head_dim]</span><br><span class="hljs-string">    cos, sin: [seq_len, head_dim]</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br><br>    <span class="hljs-comment"># 准备 cos 和 sin，并扩展维度以匹配 x (b, s, d)</span><br>    <span class="hljs-comment"># RoPE 通常将 cos/sin 复制一份，使得维度变成 (s, d)</span><br>    cos = torch.cos(freqs).repeat(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># (s, d)</span><br>    sin = torch.sin(freqs).repeat(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># (s, d)</span><br><br>    q_embed = (q * cos) + (rotate_half(q) * sin)<br>    k_embed = (k * cos) + (rotate_half(k) * sin)<br>    <span class="hljs-keyword">return</span> q_embed, k_embed<br><br><br><span class="hljs-comment">## 3D RoPE</span><br><span class="hljs-comment">## 3D-RoPE 的实现逻辑是 1D-RoPE 的高维演进。它的核心在于维度解耦：将一个向量切分为三段，分别在时间（T）、高度（H）、宽度（W）三个轴上独立应用旋转。</span><br><span class="hljs-keyword">import</span> torch<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">rotate_half</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;将特征对半拆分并交换，构造旋转效果&quot;&quot;&quot;</span><br>    x1, x2 = x.chunk(<span class="hljs-number">2</span>, dim=-<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">return</span> torch.cat((-x2, x1), dim=-<span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">apply_3d_rope</span>(<span class="hljs-params">q, k, freqs_t, freqs_h, freqs_w</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    q, k: [B, L, H, D]  (D 是 head_dim)</span><br><span class="hljs-string">    freqs_t, freqs_h, freqs_w: [L, D//3] 对应三个维度的 cos/sin 频率</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    d_part = q.shape[-<span class="hljs-number">1</span>] // <span class="hljs-number">3</span><br>    <br>    <span class="hljs-comment"># 1. 拆分 Query 和 Key 的维度</span><br>    q_t, q_h, q_w = q.split(d_part, dim=-<span class="hljs-number">1</span>)<br>    k_t, k_h, k_w = k.split(d_part, dim=-<span class="hljs-number">1</span>)<br>    <br>    <span class="hljs-comment"># 2. 定义局部应用 RoPE 的函数</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">apply_rope_to_part</span>(<span class="hljs-params">x, freqs</span>):<br>        <span class="hljs-comment"># freqs 包含拼接好的 cos 和 sin</span><br>        cos, sin = freqs.chunk(<span class="hljs-number">2</span>, dim=-<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> (x * cos) + (rotate_half(x) * sin)<br><br>    <span class="hljs-comment"># 3. 三个轴并行旋转</span><br>    q_out = torch.cat([<br>        apply_rope_to_part(q_t, freqs_t),<br>        apply_rope_to_part(q_h, freqs_h),<br>        apply_rope_to_part(q_w, freqs_w)<br>    ], dim=-<span class="hljs-number">1</span>)<br>    <br>    k_out = torch.cat([<br>        apply_rope_to_part(k_t, freqs_t),<br>        apply_rope_to_part(k_h, freqs_h),<br>        apply_rope_to_part(k_w, freqs_w)<br>    ], dim=-<span class="hljs-number">1</span>)<br><br>    <span class="hljs-keyword">return</span> q_out, k_out<br></code></pre></td></tr></table></figure>
+<h1 id="CLip"><a href="#CLip" class="headerlink" title="CLip"></a>CLip</h1><h2 id="如何将变长的text和图片的特征长度一致？"><a href="#如何将变长的text和图片的特征长度一致？" class="headerlink" title="如何将变长的text和图片的特征长度一致？"></a>如何将变长的text和图片的特征长度一致？</h2><ul>
+<li><p>文本端（Text Encoder）：<br>  文本经过分词（BPE）后，通常会固定一个长度（如 76）。在经过 Transformer 编码后，CLIP 并不使用所有 Token 的输出，而是提取 [EOS]位置的向量作为整句话的全局特征，（End of Sentence，通常是最后一个标签。attention机制中，EOS位置的向量会手机前面所有词汇的语义，信息向后流动）。</p>
+</li>
+<li><p>图像端（Image Encoder）：<br>  如果是 ViT (Vision Transformer)，它会像 BERT 一样使用一个特殊的 [CLS]Token 的输出来代表整张图片（Classification，因为ViT是双向的mask，所以在开始还是最后没有关系） 。</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># requirements: torch, torchvision, transformers (可选)</span><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SimpleImageEncoder</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, out_dim=<span class="hljs-number">512</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-comment"># 简化：用一个小 CNN 或者直接线性投影</span><br>        <span class="hljs-variable language_">self</span>.backbone = nn.Sequential(<br>            nn.Flatten(),<br>            nn.Linear(<span class="hljs-number">3</span>*<span class="hljs-number">64</span>*<span class="hljs-number">64</span>, <span class="hljs-number">1024</span>),<br>            nn.ReLU(),<br>            nn.Linear(<span class="hljs-number">1024</span>, out_dim)<br>        )<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.backbone(x)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SimpleTextEncoder</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, vocab_size=<span class="hljs-number">30522</span>, embed_dim=<span class="hljs-number">512</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.embed = nn.Embedding(vocab_size, embed_dim)<br>        <span class="hljs-variable language_">self</span>.pool = nn.AdaptiveAvgPool1d(<span class="hljs-number">1</span>)<br>        <span class="hljs-comment"># 或者使用 pretrained BERT 的 CLS 向量</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, token_ids</span>):<br>        <span class="hljs-comment"># token_ids: (B, L)</span><br>        x = <span class="hljs-variable language_">self</span>.embed(token_ids)  <span class="hljs-comment"># (B, L, D)</span><br>        x = x.mean(dim=<span class="hljs-number">1</span>)          <span class="hljs-comment"># 简单池化 -&gt; (B, D)</span><br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ContrastiveModel</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, dim=<span class="hljs-number">512</span>, temp=<span class="hljs-number">0.07</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.img_enc = SimpleImageEncoder(out_dim=dim)<br>        <span class="hljs-variable language_">self</span>.txt_enc = SimpleTextEncoder(embed_dim=dim)<br>        <span class="hljs-variable language_">self</span>.temp = nn.Parameter(torch.tensor(temp))<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, images, token_ids</span>):<br>        img_feats = <span class="hljs-variable language_">self</span>.img_enc(images)         <span class="hljs-comment"># (B, D)</span><br>        txt_feats = <span class="hljs-variable language_">self</span>.txt_enc(token_ids)      <span class="hljs-comment"># (B, D)</span><br>        img_feats = F.normalize(img_feats, dim=-<span class="hljs-number">1</span>)<br>        txt_feats = F.normalize(txt_feats, dim=-<span class="hljs-number">1</span>)<br>        logits = torch.matmul(img_feats, txt_feats.t()) / <span class="hljs-variable language_">self</span>.temp.exp()  <span class="hljs-comment"># (B, B)</span><br>        labels = torch.arange(logits.size(<span class="hljs-number">0</span>), device=logits.device)<br>        loss_i = F.cross_entropy(logits, labels)              <span class="hljs-comment"># image-&gt;text</span><br>        loss_t = F.cross_entropy(logits.t(), labels)          <span class="hljs-comment"># text-&gt;image</span><br>        loss = (loss_i + loss_t) / <span class="hljs-number">2</span><br>        <span class="hljs-keyword">return</span> loss, logits<br></code></pre></td></tr></table></figure>
+
+<h1 id="Norm"><a href="#Norm" class="headerlink" title="Norm"></a>Norm</h1><h2 id="LayerNorm"><a href="#LayerNorm" class="headerlink" title="LayerNorm"></a>LayerNorm</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LayerNorm</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hidden_size, eps=<span class="hljs-number">1e-6</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.hidden_size = hidden_size  <span class="hljs-comment"># 隐藏状态的大小</span><br>        <span class="hljs-variable language_">self</span>.eps = eps  <span class="hljs-comment"># 用于数值稳定性的一个小值</span><br>        <br>        <span class="hljs-comment"># 初始化可学习的缩放和平移参数</span><br>        <span class="hljs-variable language_">self</span>.gamma = nn.Parameter(torch.ones(hidden_size))  <span class="hljs-comment"># 缩放参数，初始值为全1</span><br>        <span class="hljs-variable language_">self</span>.beta = nn.Parameter(torch.zeros(hidden_size))  <span class="hljs-comment"># 平移参数，初始值为全0</span><br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-comment"># x 形状: (batch_size, seq_len, hidden_size)</span><br>        <br>        <span class="hljs-comment"># 计算每个样本的均值和方差</span><br>        mean = x.mean(dim=-<span class="hljs-number">1</span>, keepdim=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># 计算最后一个维度的均值，形状: (batch_size, seq_len, 1)</span><br>        variance = x.var(dim=-<span class="hljs-number">1</span>, keepdim=<span class="hljs-literal">True</span>, unbiased=<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 计算最后一个维度的方差，形状: (batch_size, seq_len, 1)</span><br>        <br>        <span class="hljs-comment"># 进行归一化</span><br>        x_normalized = (x - mean) / torch.sqrt(variance + <span class="hljs-variable language_">self</span>.eps)  <span class="hljs-comment"># 归一化，形状: (batch_size, seq_len, hidden_size)</span><br>        <br>        <span class="hljs-comment"># 应用缩放和平移参数</span><br>        output = <span class="hljs-variable language_">self</span>.gamma * x_normalized + <span class="hljs-variable language_">self</span>.beta  <span class="hljs-comment"># 形状: (batch_size, seq_len, hidden_size)</span><br>        <br>        <span class="hljs-keyword">return</span> output<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test_layer_norm</span>():<br>    batch_size = <span class="hljs-number">2</span><br>    seq_len = <span class="hljs-number">4</span><br>    hidden_size = <span class="hljs-number">8</span><br>    <br>    <span class="hljs-comment"># 随机生成输入数据</span><br>    x = torch.randn(batch_size, seq_len, hidden_size)  <span class="hljs-comment"># (batch_size, seq_len, hidden_size)</span><br>    <br>    <span class="hljs-comment"># 创建 LayerNorm 模块</span><br>    layer_norm = LayerNorm(hidden_size)<br>    <br>    <span class="hljs-comment"># 计算 LayerNorm 输出</span><br>    output = layer_norm(x)<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Input shape:&quot;</span>, x.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Output shape:&quot;</span>, output.shape)<br>    <br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>	test_layer_norm()<br><br><br><span class="hljs-comment"># KL散度</span><br><br>```python<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">manual_cross_entropy</span>(<span class="hljs-params">logits, target</span>):<br>    <span class="hljs-comment"># 第一步：计算 Softmax 概率</span><br>    probs = F.softmax(logits, dim=-<span class="hljs-number">1</span>)<br>    <br>    <span class="hljs-comment"># 第二步：对标签进行 One-hot 编码</span><br>    <span class="hljs-comment"># 比如 target [1] 变成 [0, 1, 0, 0, 0]</span><br>    one_hot = F.one_hot(target, num_classes=logits.shape[-<span class="hljs-number">1</span>])<br>    <br>    <span class="hljs-comment"># 第三步：计算 -log(p) 并只保留正确类别的那一项</span><br>    <span class="hljs-comment"># 加上 1e-9 是为了防止 log(0) 报错（数值稳定性）</span><br>    loss = -torch.<span class="hljs-built_in">sum</span>(one_hot * torch.log(probs + <span class="hljs-number">1e-9</span>), dim=-<span class="hljs-number">1</span>)<br>    <br>    <span class="hljs-comment"># 第四步：返回 Batch 的平均值</span><br>    <span class="hljs-keyword">return</span> loss.mean()<br><br><span class="hljs-comment"># 验证结果是否与官方一致</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Manual Loss: <span class="hljs-subst">&#123;manual_cross_entropy(logits, target).item()&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="RMSNorm"><a href="#RMSNorm" class="headerlink" title="RMSNorm"></a>RMSNorm</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">RMSNorm</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hidden_size, eps=<span class="hljs-number">1e-6</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.hidden_size = hidden_size<br>        <span class="hljs-variable language_">self</span>.eps = eps  <span class="hljs-comment"># 用于数值稳定性的一个小值</span><br>        <br>        <span class="hljs-comment"># 仅保留缩放参数 gamma，移除 beta</span><br>        <span class="hljs-variable language_">self</span>.gamma = nn.Parameter(torch.ones(hidden_size))  <span class="hljs-comment"># 初始化为全 1</span><br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-comment"># 计算均方根 (RMS)，不进行均值中心化</span><br>        rms = torch.sqrt(torch.mean(x.<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>), dim=-<span class="hljs-number">1</span>, keepdim=<span class="hljs-literal">True</span>) + <span class="hljs-variable language_">self</span>.eps)  <span class="hljs-comment"># 平方后求均值，再开根</span><br>        <br>        <span class="hljs-comment"># 归一化：x / RMS</span><br>        x_normalized = x / rms  <span class="hljs-comment"># 不减去均值</span><br>        <br>        <span class="hljs-comment"># 仅应用 gamma 参数，无 beta</span><br>        output = <span class="hljs-variable language_">self</span>.gamma * x_normalized<br>        <br>        <span class="hljs-keyword">return</span> output<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test_rms_norm</span>():  <span class="hljs-comment"># 修改测试函数名</span><br>    batch_size = <span class="hljs-number">2</span><br>    seq_len = <span class="hljs-number">4</span><br>    hidden_size = <span class="hljs-number">8</span><br>    <br>    x = torch.randn(batch_size, seq_len, hidden_size)<br>    rms_norm = RMSNorm(hidden_size)  <span class="hljs-comment"># 使用 RMSNorm 类</span><br>    output = rms_norm(x)<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Input shape:&quot;</span>, x.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Output shape:&quot;</span>, output.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Params:&quot;</span>, <span class="hljs-built_in">list</span>(rms_norm.parameters()))  <span class="hljs-comment"># 仅有一个参数 gamma</span><br>    <br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    test_rms_norm()  <span class="hljs-comment"># 调用测试函数</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="BatchNorm"><a href="#BatchNorm" class="headerlink" title="BatchNorm"></a>BatchNorm</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BatchNorm</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hidden_size, eps=<span class="hljs-number">1e-5</span>, momentum=<span class="hljs-number">0.1</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.hidden_size = hidden_size  <span class="hljs-comment"># 隐藏状态的大小</span><br>        <span class="hljs-variable language_">self</span>.eps = eps  <span class="hljs-comment"># 用于数值稳定性的一个小值</span><br>        <span class="hljs-variable language_">self</span>.momentum = momentum  <span class="hljs-comment"># 用于计算运行时均值和方差的动量</span><br>        <br>        <span class="hljs-comment"># 初始化可学习的缩放和平移参数</span><br>        <span class="hljs-variable language_">self</span>.gamma = nn.Parameter(torch.ones(hidden_size))  <span class="hljs-comment"># 缩放参数，初始值为全1</span><br>        <span class="hljs-variable language_">self</span>.beta = nn.Parameter(torch.zeros(hidden_size))  <span class="hljs-comment"># 平移参数，初始值为全0</span><br>        <br>        <span class="hljs-comment"># 初始化运行时均值和方差</span><br>        <span class="hljs-variable language_">self</span>.running_mean = torch.zeros(hidden_size)  <span class="hljs-comment"># 运行时均值，初始值为全0</span><br>        <span class="hljs-variable language_">self</span>.running_var = torch.ones(hidden_size)  <span class="hljs-comment"># 运行时方差，初始值为全1</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-comment"># x 形状: (batch_size, seq_len, hidden_size)</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.training:<br>            <span class="hljs-comment"># 计算当前批次的均值和方差</span><br>            batch_mean = x.mean(dim=(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), keepdim=<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 计算前两个维度的均值，形状: (hidden_size)</span><br>            batch_var = x.var(dim=(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), keepdim=<span class="hljs-literal">False</span>, unbiased=<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 计算前两个维度的方差，形状: (hidden_size)</span><br><br>            <span class="hljs-comment"># 更新运行时均值和方差</span><br>            <span class="hljs-variable language_">self</span>.running_mean = (<span class="hljs-number">1</span> - <span class="hljs-variable language_">self</span>.momentum) * <span class="hljs-variable language_">self</span>.running_mean + <span class="hljs-variable language_">self</span>.momentum * batch_mean<br>            <span class="hljs-variable language_">self</span>.running_var = (<span class="hljs-number">1</span> - <span class="hljs-variable language_">self</span>.momentum) * <span class="hljs-variable language_">self</span>.running_var + <span class="hljs-variable language_">self</span>.momentum * batch_var<br>            <br>            mean = batch_mean<br>            variance = batch_var<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-comment"># 使用运行时均值和方差</span><br>            mean = <span class="hljs-variable language_">self</span>.running_mean<br>            variance = <span class="hljs-variable language_">self</span>.running_var<br>        <br>        <span class="hljs-comment"># 进行归一化</span><br>        x_normalized = (x - mean) / torch.sqrt(variance + <span class="hljs-variable language_">self</span>.eps)  <span class="hljs-comment"># 归一化，形状: (batch_size, seq_len, hidden_size)</span><br>        <br>        <span class="hljs-comment"># 应用缩放和平移参数</span><br>        output = <span class="hljs-variable language_">self</span>.gamma * x_normalized + <span class="hljs-variable language_">self</span>.beta  <span class="hljs-comment"># 形状: (batch_size, seq_len, hidden_size)</span><br>        <br>        <span class="hljs-keyword">return</span> output<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test_batch_norm</span>():<br>    batch_size = <span class="hljs-number">2</span><br>    seq_len = <span class="hljs-number">4</span><br>    hidden_size = <span class="hljs-number">8</span><br>    <br>    <span class="hljs-comment"># 随机生成输入数据</span><br>    x = torch.randn(batch_size, seq_len, hidden_size)  <span class="hljs-comment"># (batch_size, seq_len, hidden_size)</span><br>    <br>    <span class="hljs-comment"># 创建 BatchNorm 模块</span><br>    batch_norm = BatchNorm(hidden_size)<br>    <br>    <span class="hljs-comment"># 计算 BatchNorm 输出</span><br>    output = batch_norm(x)<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Input shape:&quot;</span>, x.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Output shape:&quot;</span>, output.shape)<br>    <br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>	test_batch_norm()<br></code></pre></td></tr></table></figure>
+
+<h1 id="Q-former"><a href="#Q-former" class="headerlink" title="Q-former"></a>Q-former</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><br></code></pre></td></tr></table></figure>
+
+<h1 id="Lora"><a href="#Lora" class="headerlink" title="Lora"></a>Lora</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 逻辑示意：在 Attention 中应用 LoRA</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LoraLinear</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, weight, rank=<span class="hljs-number">8</span>, alpha=<span class="hljs-number">16</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        <span class="hljs-variable language_">self</span>.weight = weight <span class="hljs-comment"># 冻结的原始权重 (e.g., q_proj)</span><br>        <span class="hljs-variable language_">self</span>.lora_A = nn.Parameter(torch.randn(weight.size(<span class="hljs-number">1</span>), rank))<br>        <span class="hljs-variable language_">self</span>.lora_B = nn.Parameter(torch.zeros(rank, weight.size(<span class="hljs-number">0</span>)))<br>        <span class="hljs-variable language_">self</span>.scaling = alpha / rank<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-comment"># 原始路径 + LoRA 路径</span><br>        <span class="hljs-keyword">return</span> F.linear(x, <span class="hljs-variable language_">self</span>.weight) + (x @ <span class="hljs-variable language_">self</span>.lora_A @ <span class="hljs-variable language_">self</span>.lora_B) * <span class="hljs-variable language_">self</span>.scaling<br></code></pre></td></tr></table></figure>
+
+<h1 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h1><h2 id="Binary-Cross-Entropy-and-Cross-Entropy"><a href="#Binary-Cross-Entropy-and-Cross-Entropy" class="headerlink" title="Binary Cross Entropy and Cross Entropy"></a>Binary Cross Entropy and Cross Entropy</h2><p>本质差别：BCE vs CE 的本质差异不在公式，而在你假设世界是“独立事件”还是“互斥选择”。</p>
+<h3 id="Binary-Cross-Entropy-BCE-和-Categorical-Cross-Entropy-CE-CCE-的核心区别在于它们对“类别关系”的假设不同。"><a href="#Binary-Cross-Entropy-BCE-和-Categorical-Cross-Entropy-CE-CCE-的核心区别在于它们对“类别关系”的假设不同。" class="headerlink" title="Binary Cross Entropy (BCE) 和 Categorical Cross Entropy (CE&#x2F;CCE) 的核心区别在于它们对“类别关系”的假设不同。"></a>Binary Cross Entropy (BCE) 和 Categorical Cross Entropy (CE&#x2F;CCE) 的核心区别在于它们对“类别关系”的假设不同。</h3><ol>
+<li>核心区别一览特性Binary Cross Entropy (BCE)Categorical Cross Entropy (CE)主要用途二分类或多标签分类多分类（单选）激活函数通常配合 Sigmoid通常配合 Softmax类别关系各类别相互独立（互不影响）各类别相互排斥（和为1）输出层节点1个（二分类）或 N个（多标签）N个（N代表类别总数）标签格式0 或 1（或多标签向量 [1, 0, 1]）One-hot 编码（如 [0, 0, 1]）</li>
+<li>数学公式上的差异BCE (二元交叉熵)它衡量的是两个独立伯努利分布之间的差异。对于每一个样本，它考虑的是“是”与“否”：<br>$$Loss &#x3D; -[y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y})]$$<br>$y$ 是真实标签（0或1），$\hat{y}$ 是预测概率。CE (类别交叉熵)它衡量的是两个多项式分布之间的差异。它只关心真实类别那一项的预测概率：<br>$$Loss &#x3D; -\sum_{i&#x3D;1}^{N} y_i \cdot \log(\hat{y}<em>i)$$<br>由于 $y_i$ 通常是 One-hot 编码（只有一项是1，其余是0），所以这个公式实际上简化为：$- \log(\hat{p}</em>{true_class})$。</li>
+</ol>
+<h3 id="BCE-Code"><a href="#BCE-Code" class="headerlink" title="BCE Code"></a>BCE Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">binary_cross_entropy</span>(<span class="hljs-params">y_true, y_pred</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    计算二元交叉熵损失（需配合 Sigmoid 使用）</span><br><span class="hljs-string">    :param y_true: 二分类的真实标签（0 或 1），形状 (n_samples, n_classes)</span><br><span class="hljs-string">    :param y_pred: 模型输出的 logits，形状 (n_samples, n_classes)</span><br><span class="hljs-string">    :return: 标量损失值</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 应用 Sigmoid 将 logits 转换为概率</span><br>    sigmoid_output = <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-y_pred))<br>    <br>    <span class="hljs-comment"># 避免 log(0) 导致的数值问题</span><br>    epsilon = <span class="hljs-number">1e-7</span><br>    clipped = np.clip(sigmoid_output, epsilon, <span class="hljs-number">1</span> - epsilon)<br>    <br>    <span class="hljs-comment"># 计算每个样本每个类别的损失</span><br>    loss_per_element = - (y_true * np.log(clipped) + (<span class="hljs-number">1</span> - y_true) * np.log(<span class="hljs-number">1</span> - clipped))<br>    <br>    <span class="hljs-comment"># 对所有元素取平均损失</span><br>    <span class="hljs-keyword">return</span> np.mean(loss_per_element)<br><br><span class="hljs-comment"># 示例用法（两个样本，三分类多标签问题）</span><br>y_true = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>]])  <span class="hljs-comment"># 多标签真实值</span><br>y_pred = np.array([[<span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>, -<span class="hljs-number">1.0</span>], [<span class="hljs-number">0.5</span>, <span class="hljs-number">3.0</span>, -<span class="hljs-number">0.5</span>]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;BCE Loss: <span class="hljs-subst">&#123;binary_cross_entropy(y_true, y_pred):<span class="hljs-number">.4</span>f&#125;</span>&quot;</span>)  <span class="hljs-comment"># 输出 0.1955</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="CE-Code"><a href="#CE-Code" class="headerlink" title="CE Code"></a>CE Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">cross_entropy</span>(<span class="hljs-params">y_true, y_pred</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    计算交叉熵损失（需配合 Softmax 使用），带数值稳定处理</span><br><span class="hljs-string">    :param y_true: one-hot 编码的真实标签，形状 (n_samples, n_classes)</span><br><span class="hljs-string">    :param y_pred: 模型输出的 logits，形状 (n_samples, n_classes)</span><br><span class="hljs-string">    :return: 标量损失值</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 数值稳定处理：减去最大值防止指数爆炸</span><br>    exps = np.exp(y_pred - np.<span class="hljs-built_in">max</span>(y_pred, axis=<span class="hljs-number">1</span>, keepdims=<span class="hljs-literal">True</span>))<br>    softmax_output = exps / np.<span class="hljs-built_in">sum</span>(exps, axis=<span class="hljs-number">1</span>, keepdims=<span class="hljs-literal">True</span>)<br>    <br>    <span class="hljs-comment"># 避免 log(0) 导致数值问题</span><br>    epsilon = <span class="hljs-number">1e-7</span><br>    clipped = np.clip(softmax_output, epsilon, <span class="hljs-number">1</span> - epsilon)<br>    <br>    <span class="hljs-comment"># 只计算真实类别对应的损失</span><br>    n_samples = y_true.shape[<span class="hljs-number">0</span>]<br>    log_likelihood = -np.log(clipped[<span class="hljs-built_in">range</span>(n_samples), y_true.argmax(axis=<span class="hljs-number">1</span>)])<br>    <span class="hljs-keyword">return</span> np.mean(log_likelihood)<br><br><span class="hljs-comment"># 示例用法（三分类问题）</span><br>y_true = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>], [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]])  <span class="hljs-comment"># one-hot 编码</span><br>y_pred = np.array([[<span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.1</span>], [<span class="hljs-number">0.5</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">0.2</span>]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;CrossEntropy Loss: <span class="hljs-subst">&#123;cross_entropy(y_true, y_pred):<span class="hljs-number">.4</span>f&#125;</span>&quot;</span>)  <span class="hljs-comment"># 输出 0.3184</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/" class="category-chain-item">原理</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>常见问题记录</div>
+      <div>http://example.com/2025/12/20/常见问题记录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>December 20, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/20/Transformer/" title="Transformer">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Transformer</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/20/%E8%BF%9E%E7%BB%AD%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8B%E7%9A%84Flow%20Matching%E5%92%8CDiffusion/" title="Evidence Lower Bound 推导与解释">
+                        <span class="hidden-mobile">Evidence Lower Bound 推导与解释</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

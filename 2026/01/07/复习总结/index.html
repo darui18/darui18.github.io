@@ -1,0 +1,873 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 可控视频生成技术路线   发表时间 文章&#x2F;模型名称 核心创新点 (Key Innovations) 建议关注点 (调研价值) 论文&#x2F;项目地址    2022.08 DreamBooth 唯一标识符绑定：通过微调将特定主体绑定到罕见 Token（如 sks）。 长效 ID 保持：当零样本方案失效时，作为锁定人物特征的底线方案。 arXiv   2023.02 Control">
+<meta property="og:type" content="article">
+<meta property="og:title" content="总结">
+<meta property="og:url" content="http://example.com/2026/01/07/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 可控视频生成技术路线   发表时间 文章&#x2F;模型名称 核心创新点 (Key Innovations) 建议关注点 (调研价值) 论文&#x2F;项目地址    2022.08 DreamBooth 唯一标识符绑定：通过微调将特定主体绑定到罕见 Token（如 sks）。 长效 ID 保持：当零样本方案失效时，作为锁定人物特征的底线方案。 arXiv   2023.02 Control">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/animate_diff.png">
+<meta property="og:image" content="http://example.com/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/ip_adapter.png">
+<meta property="og:image" content="http://example.com/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/animate_anyone.png">
+<meta property="og:image" content="http://example.com/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/MagicAnimate.png">
+<meta property="article:published_time" content="2026-01-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-17T10:14:33.711Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/animate_diff.png">
+  
+  
+  
+  <title>总结 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WangDarui</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-07 00:00" pubdate>
+          January 7, 2026 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-可控视频生成技术路线"><a href="#1-可控视频生成技术路线" class="headerlink" title="1. 可控视频生成技术路线"></a>1. 可控视频生成技术路线</h1><table>
+<thead>
+<tr>
+<th>发表时间</th>
+<th>文章&#x2F;模型名称</th>
+<th>核心创新点 (Key Innovations)</th>
+<th>建议关注点 (调研价值)</th>
+<th>论文&#x2F;项目地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2022.08</td>
+<td>DreamBooth</td>
+<td>唯一标识符绑定：通过微调将特定主体绑定到罕见 Token（如 sks）。</td>
+<td>长效 ID 保持：当零样本方案失效时，作为锁定人物特征的底线方案。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2023.02</td>
+<td>ControlNet</td>
+<td>可训练副本+零卷积：引入外部控制信号（骨架、深度图），奠定结构可控生成基础。</td>
+<td>信号注入机制：学习如何将外部物理约束（Pose）与扩散模型深度融合。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2023.07</td>
+<td>AnimateDiff</td>
+<td>动作模块 (Motion Module)：不改基座，插入时间注意力层赋予模型“肌肉记忆”。</td>
+<td>时序连贯性</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2023.08</td>
+<td>IP-Adapter</td>
+<td>解耦交叉注意力路径：独立图像特征路径，实现“画风&#x2F;人物”的轻量化迁移。</td>
+<td>特征解耦：研究在不进行全模型微调下，如何通过文本&#x2F;图像双路注入。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2023.11</td>
+<td>Animate Anyone</td>
+<td>ReferenceNet (对称 UNet)：像素级细节对齐，大幅提升服饰纹理还原度。</td>
+<td>高保真 ID 还原：调研 Spatial-Attention 机制如何解决“换装”闪烁。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2023.11</td>
+<td>MagicAnimate</td>
+<td>外观编码器+视频融合：增强跨领域（雕塑、油画）人像驱动的鲁棒性。</td>
+<td>风格泛化能力：观察模型在处理非真人（卡通&#x2F;艺术品）时的稳定性。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2024.03</td>
+<td>Champ</td>
+<td>3D 形状感知 (SMPL 先验)：引入法线图&#x2F;深度图，解决大幅旋转的“纸片感”。</td>
+<td>空间几何理解：研究 3D 先验如何修正 2D 骨架在遮挡场景下的逻辑错误。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2024.06</td>
+<td>MimicMotion</td>
+<td>置信度感知引导 (Confidence)：识别不准的 Pose 信号并进行平滑修正。</td>
+<td>抗噪鲁棒性：重点研究手部区域增强 Loss 以及对低质量视频的优化。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2024.12</td>
+<td>Animate Anyone 2</td>
+<td>环境负荷 (Affordance)：优化人物与背景的物理交互（阴影、接触）。</td>
+<td>真实感进阶：调研“对象引导器”如何处理手抓物体等交互。</td>
+<td>Project</td>
+</tr>
+<tr>
+<td>2025.01</td>
+<td>Wan2.2-Animate</td>
+<td>MoE 架构 + Relighting LoRA：统一动画与替换模式，支持光影重构。</td>
+<td>光影一致性：关注其 Relighting 模块如何让生成人物融入原始场景光照。</td>
+<td>GitHub</td>
+</tr>
+<tr>
+<td>2025.02</td>
+<td>HumanDiT</td>
+<td>前缀潜变量 (Prefix-Latent) + DiT：全 Transformer 架构处理超长视频。</td>
+<td>架构代差：调研 DiT 相比 UNet 在长序列一致性上的优势。</td>
+<td>Project</td>
+</tr>
+<tr>
+<td>2025.05</td>
+<td>Sonic</td>
+<td>位置偏移自适应融合 (PSF)：针对极速运动优化，解决高速拖影。</td>
+<td>极速动效：关注如何利用“运动残差”学习解决画面模糊与长视频飘移。</td>
+<td>arXiv</td>
+</tr>
+<tr>
+<td>2025.10</td>
+<td>One-to-All Animation</td>
+<td>通过将动画生成重构为自监督外扩（Outpainting）任务，实现了在无需空间对齐和无视构图差异的前提下，从单张参考图生成长时序、高保真的角色动作视频。</td>
+<td>它打破了角色动画对参考图与动作姿态必须空间对齐的严苛限制，为实现任意构图输入下的长时序、高保真视频生成提供了工业级的解决方案。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/ssj9596/One-to-All-Animation">https://github.com/ssj9596/One-to-All-Animation</a></td>
+</tr>
+</tbody></table>
+<h1 id="2-技术细节"><a href="#2-技术细节" class="headerlink" title="2. 技术细节"></a>2. 技术细节</h1><h2 id="1-1-SD-1-5"><a href="#1-1-SD-1-5" class="headerlink" title="1.1. SD 1.5"></a>1.1. SD 1.5</h2><h3 id="1-1-1-推荐参考资料"><a href="#1-1-1-推荐参考资料" class="headerlink" title="1.1.1. 推荐参考资料"></a>1.1.1. 推荐参考资料</h3><ul>
+<li>推荐源码：hkproj&#x2F;pytorch-stable-diffusion</li>
+<li>推荐架构图：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xd_wjc/article/details/134441396">https://blog.csdn.net/xd_wjc/article/details/134441396</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">CrossAttDownBlock<br>    x2<br>    &#123;<br>        ResnetBlock2D<br>            GroupNorm<br>            Silu<br>            Conv<br>            + time emb<br>            GroupNorm<br>            Silu<br>            Conv<br>        AttentionBlock2D<br>            GroupNorm<br>            reshape: (batch, channle, H, W) -&gt; (batch, H*W, channle)<br>            attenion Block:<br>                <span class="hljs-variable language_">self</span> attention<br>                cross attention: + text clip<br>                attention FFN<br>    &#125;<br>    DownSample<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-2-SD-2-1"><a href="#1-2-SD-2-1" class="headerlink" title="1.2. SD 2.1"></a>1.2. SD 2.1</h2><h2 id="1-3-2022-08-DreamBooth"><a href="#1-3-2022-08-DreamBooth" class="headerlink" title="1.3. 2022.08 DreamBooth"></a>1.3. 2022.08 DreamBooth</h2><h2 id="1-4-2023-02-ControlNet"><a href="#1-4-2023-02-ControlNet" class="headerlink" title="1.4. 2023.02 ControlNet"></a>1.4. 2023.02 ControlNet</h2><h3 id="1-4-1-参考资料"><a href="#1-4-1-参考资料" class="headerlink" title="1.4.1. 参考资料"></a>1.4.1. 参考资料</h3><h3 id="1-4-2-原理"><a href="#1-4-2-原理" class="headerlink" title="1.4.2. 原理"></a>1.4.2. 原理</h3><ul>
+<li>克隆 (Trainable Copy)：ControlNet 会复制一个与原有 U-Net 的 Encoder（下采样部分） 和 Middle Block 完全一致的副本。</li>
+<li>冻结 (Locked Copy)：原有的 U-Net 权重被完全锁定（Frozen），不参与梯度更新。</li>
+<li>ControlNet 的 Encoder 每一层输出，都会经过一个 $1 \times 1$ 的<em>零卷积层</em>，然后加到原有 U-Net 对应的 Decoder（上采样部分） 的输入上。</li>
+</ul>
+<h2 id="1-5-2023-07-AnimateDiff"><a href="#1-5-2023-07-AnimateDiff" class="headerlink" title="1.5. 2023.07 AnimateDiff"></a>1.5. 2023.07 AnimateDiff</h2><p><img src="/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/animate_diff.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>Figure 3: Training pipeline of AnimateDiff. AnimateDiff consists of three training stages for the corresponding component modules. Firstly, a domain adapter (Sec. 4.1) is trained to alleviate the negative effects caused by training videos. Secondly, a motion module (Sec. 4.2) is inserted and trained on videos to learn general motion priors. Lastly, MotionLoRA (Sec. 4.3) is trained on a few reference videos to adapt the pre-trained motion module to new motion patterns.</p>
+<h3 id="1-5-1-参考资料"><a href="#1-5-1-参考资料" class="headerlink" title="1.5.1. 参考资料"></a>1.5.1. 参考资料</h3><ul>
+<li>核心源码：<a target="_blank" rel="noopener" href="https://github.com/guoyww/AnimateDiff/blob/main/animatediff/models/motion_module.py">https://github.com/guoyww/AnimateDiff/blob/main/animatediff/models/motion_module.py</a></li>
+</ul>
+<h3 id="1-5-2-核心的模块"><a href="#1-5-2-核心的模块" class="headerlink" title="1.5.2. 核心的模块"></a>1.5.2. 核心的模块</h3><ul>
+<li><p>原始的spatial attention：</p>
+<p>  输入状态：$[Batch, \text{Frame}, \text{Channel}, H, W]$（5D 张量） -&gt;  $[Batch* \text{Frame}, H * W, \text{Channel}]$</p>
+</li>
+<li><p>Motion Module attention(无text注入，有position encoding):</p>
+<p>  输入状态: $[Batch, \text{Frame}, \text{Channel}, H, W]$（5D 张量）-&gt;  $[Batch * H * W, \text{Frame}, \text{Channel}]$ + position embading</p>
+</li>
+</ul>
+<h3 id="1-5-3-全Zero初始化，不会导致向后传播的度一致？"><a href="#1-5-3-全Zero初始化，不会导致向后传播的度一致？" class="headerlink" title="1.5.3. 全Zero初始化，不会导致向后传播的度一致？"></a>1.5.3. 全Zero初始化，不会导致向后传播的度一致？</h3><ul>
+<li>只针对最后的proj为0，（见：<a target="_blank" rel="noopener" href="https://github.com/guoyww/AnimateDiff/blob/main/animatediff/models/motion_module.py#L77%EF%BC%89%EF%BC%8C%E6%B1%82%E5%AF%BC%E6%97%B6%E4%B8%8D%E4%BC%9A%E5%AF%BC%E8%87%B4%E5%85%A8%E9%9B%B6%EF%BC%9B">https://github.com/guoyww/AnimateDiff/blob/main/animatediff/models/motion_module.py#L77），求导时不会导致全零；</a></li>
+</ul>
+<h3 id="1-5-4-如何生成多余16帧的视频？"><a href="#1-5-4-如何生成多余16帧的视频？" class="headerlink" title="1.5.4. 如何生成多余16帧的视频？"></a>1.5.4. 如何生成多余16帧的视频？</h3><ul>
+<li><p>滑动窗口：</p>
+<p>  窗口 A: 第 1-16 帧</p>
+<p>  窗口 B: 第 9-24 帧（与 A 重叠 8 帧）</p>
+<p>  窗口 C: 第 17-32 帧（与 B 重叠 8 帧）</p>
+</li>
+<li><p>实现细节：<br>  这里有一个常见的误解：滑动窗口不是先预测完前 16 帧的所有 Step，再去预测后 16 帧。真实的实现逻辑是：在每一个去噪步 $t$（例如从 Step 50 到 Step 49）：</p>
+<ol>
+<li>全量输入：算法持有整个视频长度的 Latent（比如 32 帧的 $z_t$）。</li>
+<li>局部处理：<ol>
+<li>取出窗口 A 的 1-16 帧，跑一次 U-Net，得到 $\epsilon_{1-16}$。</li>
+<li>取出窗口 B 的 9-24 帧，跑一次 U-Net，得到 $\epsilon_{9-24}$。</li>
+<li>…以此类推，直到覆盖全长。</li>
+</ol>
+</li>
+<li>全局组装：将所有窗口预测的 $\epsilon$ 按照上述权重融合，拼回成一个 32 帧长度的完整预测值 $\epsilon_{total}$。</li>
+<li>单步更新：使用这个融合后的 $\epsilon_{total}$，根据采样器算法（如 DDIM），统一将 32 帧的 $z_t$ 更新为 $z_{t-1}$。结论：它在每一轮去噪中都执行了这种“局部观察、全局汇总”的操作。这样，第 9 帧在更新到 $t-1$ 时，既参考了它前面 8 帧的运动趋势，也参考了它后面 8 帧的运动趋势。</li>
+</ol>
+</li>
+<li><p>伪代码：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 伪代码逻辑</span><br>total_noise_pred = torch.zeros_like(full_video_latent)<br>weights_sum = torch.zeros_like(full_video_latent)<br><br><span class="hljs-keyword">for</span> window_indices <span class="hljs-keyword">in</span> context_scheduler:<br>    <span class="hljs-comment"># 提取局部帧</span><br>    latent_in = full_video_latent[:, :, window_indices]<br>    <span class="hljs-comment"># 预测噪声</span><br>    pred = unet(latent_in, timesteps, text_embeddings)<br>    <span class="hljs-comment"># 应用高斯权重并累加</span><br>    w = get_gaussian_weights(<span class="hljs-built_in">len</span>(window_indices))<br>    total_noise_pred[:, :, window_indices] += pred * w<br>    weights_sum[:, :, window_indices] += w<br><br><span class="hljs-comment"># 归一化得到最终预测</span><br>final_noise_pred = total_noise_pred / weights_sum<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>创新点Temporal Pyramid Sampling（时间金字塔采样）</p>
+<ol>
+<li>核心流程：分层预测与共识融合我们可以将你的想法转化为一个两阶段的采样循环：</li>
+<li>第一阶段：全局骨架生成 (Sparse Pass)输入帧索引为 $[0, 2, 4, 6, 8, 10, 12, 14]$。目的：确定视频的宏观运动轨迹。实现：U-Net 在这一步预测出的噪声定义为 $\epsilon_{sparse}$。虽然只输入了 8 帧，但模型会认为这是一个较短但连贯的动作。</li>
+<li>第二阶段：局部细节细化 (Dense Pass)输入帧索引为 $[0, 1, 2, 3, 4, 5, 6, 7]$。目的：填充中间帧的纹理和细微动作。实现：U-Net 预测出的噪声定义为 $\epsilon_{dense}$。</li>
+<li>第三阶段：加权融合 (The Blending)对于重叠的帧（如 0, 2, 4, 6），我们拥有两份预测结果。此时需要进行噪声重组。</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-6-2023-08-IP-Adapter"><a href="#1-6-2023-08-IP-Adapter" class="headerlink" title="1.6. 2023.08 IP-Adapter"></a>1.6. 2023.08 IP-Adapter</h2><p><img src="/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/ip_adapter.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>Figure 2:The overall architecture of our proposed IP-Adapter with decoupled cross-attention strategy. Only the newly added modules (in red color) are trained while the pretrained text-to-image model is frozen.</p>
+<h3 id="1-6-1-参考资料"><a href="#1-6-1-参考资料" class="headerlink" title="1.6.1. 参考资料"></a>1.6.1. 参考资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1977771872356680834">https://zhuanlan.zhihu.com/p/1977771872356680834</a></li>
+</ul>
+<h3 id="1-6-2-基本原理"><a href="#1-6-2-基本原理" class="headerlink" title="1.6.2. 基本原理"></a>1.6.2. 基本原理</h3><ul>
+<li>参考text注入方式，引入image参考特征注入（Decoupled），经过image与noise的cross attention后，与text特征加权求和得到输出；</li>
+</ul>
+<h2 id="1-7-2023-11-Animate-Anyone"><a href="#1-7-2023-11-Animate-Anyone" class="headerlink" title="1.7. 2023.11 Animate Anyone"></a>1.7. 2023.11 Animate Anyone</h2><p><img src="/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/animate_anyone.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="1-7-2-基本原理"><a href="#1-7-2-基本原理" class="headerlink" title="1.7.2. 基本原理"></a>1.7.2. 基本原理</h3><ol>
+<li>保持身份一致性<ul>
+<li>引入ControlNet（细节控制）和IP-adapter（总体风格控制, clip提取特征）作为控制信号，输入Reference Image；</li>
+<li>ControlNet的注入方式（）与原始ReferenceNet的注入方式（叠加）不一致：</li>
+<li>注入方式的数学实现<br> 流程假设当前生成帧的特征为 $x \in \mathbb{R}^{B \times L \times C}$，参考图特征为 $w \in \mathbb{R}^{B \times L \times C}$：<ol>
+<li>拼接（Concat）：我们将两者沿序列长度维度拼在一起，形成一个新的上下文环境 $[x, w]$。</li>
+<li>线性映射：$Q &#x3D; x \cdot W_Q$$K &#x3D; [x, w] \cdot W_K$$V &#x3D; [x, w] \cdot W_V$</li>
+<li>计算注意力权重：$Attention(Q, K, V) &#x3D; \text{Softmax}\left(\frac{Q K^T}{\sqrt{d}}\right) V$</li>
+<li>为什么要这么做？通过这种方式，生成的 $Q$ 可以在整个参考图的特征空间（$K$ 和 $V$）里进行全局扫描。即使参考图中人物的手在左边，而生成视频中手移到了右边，Attention 机制也能通过特征匹配找到“手”的纹理，并准确地迁移过去。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>精准的骨骼控制<ul>
+<li><p>PoseGuider，架构类似Unet的downsample轻量级网络，用来提取OpenPose的特征，与Noise相加，因为每帧的特征和时间序列强相关，没有必要concate；</p>
+</li>
+<li><p>选择“相加”有其核心考量：</p>
+<p>   强位置约束：相加操作能将骨骼的几何位置信息**强制“刻入”**噪声的每一个像素中。这意味着 U-Net 在还没开始进行任何注意力计算之前，其输入数据中就已经包含了明确的肢体边界信号。</p>
+<p>   降低计算量：如果使用拼接，U-Net 第一层卷积的通道数会增加（例如从 4 变 8），这会改变主网络的参数量。通过相加，可以无缝兼容预训练的 Stable Diffusion 权重，且几乎不增加额外的推理开销。</p>
+<p>   保留纹理空间：拼接通常用于需要模型“理解”更多通道信息的场景，而相加则更适合“引导”已有的生成空间，让模型在原有的生成能力基础上，受到骨架坐标的物理约束。</p>
+</li>
+</ul>
+</li>
+<li>时间建模模块</li>
+<li>训练流程<br> 总的来说，训练分为两个主要阶段：<ol>
+<li>第一阶段：图像预训练（Image Pre-training）这一阶段的目标是训练 ReferenceNet 和 Pose Guider，让模型具备在静态下还原人物细节的能力。<ul>
+<li>训练对象：ReferenceNet、Pose Guider 以及主 UNet 的空间注意力层（Spatial-Attention）。</li>
+<li>输入数据：单张人物图像（或是从视频中随机抽取的单帧）。</li>
+<li>任务逻辑：给模型一张人物图（Reference Image）和对应的姿态图（Pose Map）。模型需要在噪声中重建出这张图。</li>
+<li>核心目的：让 ReferenceNet 学习如何提取像素级特征。让 Pose Guider 学习如何将骨架位置与画面对齐。此时不涉及时间模块，模型只需要证明它能完美“复写”参考图的细节。</li>
+</ul>
+</li>
+<li>第二阶段：视频微调（Video Fine-tuning）在模型已经能画出高质量静态图后，引入时间维度，让它学会“连贯性”。<ul>
+<li>训练对象：仅训练或微调 Temporal-Attention（时间模块）。为了保护第一阶段学到的细节还原能力，通常会冻结 ReferenceNet 和 Pose Guider。</li>
+<li>输入数据：连续的视频片段（例如 TikTok 舞蹈数据集，通常切分为 16 帧一组）。任务逻辑：输入第一帧作为参考图。输入后续 $n$ 帧的 Pose 序列。模型需要生成与 Pose 序列对齐、且身份始终与第一帧一致的视频。</li>
+<li>核心目的：让时间模块学习帧与帧之间的平滑过渡。学习如何处理运动产生的遮挡（例如手摆动到背后时，纹理该如何隐藏和恢复）。</li>
+<li>训练中的关键技巧<ol>
+<li>损失函数 (Loss Functions)Animate Anyone 并没有使用非常奇特的 Loss，主要沿用了扩散模型的 $L_2$ 去噪损失。但在某些复现版本中，为了让脸部更像，会额外增加 Face Loss（使用特定的面部检测器剪裁出脸部区域计算损失）。</li>
+<li>采样与数据增强Resolution：通常先在 $256 \times 256$ 分辨率上预热，最后在 $512 \times 512$ 或更高分辨率上微调。Aspect Ratio：由于人物通常是纵向的（9:16），训练数据通常会进行比例裁剪，以适配短视频场景。</li>
+<li>驱动信号的噪声处理在训练时，输入的 Pose 可能会非常完美，但在推理时 OpenPose 提取的信号可能有噪声。因此，训练时有时会给 Pose 图加入轻微的扰动，增强模型的鲁棒性。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-8-2023-12-MagicAnimate"><a href="#1-8-2023-12-MagicAnimate" class="headerlink" title="1.8. 2023.12  MagicAnimate"></a>1.8. 2023.12  MagicAnimate</h2><p><img src="/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/MagicAnimate.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>Figure 2: MagicAnimate pipeline. Given a reference image and the target DensePose motion sequence, MagicAnimate employs a video diffusion model and an appearance encoder for temporal modeling and identity preserving, respectively (left panel). To support long video animation, we devise a simple video fusion strategy that produces smooth video transition during inference (right panel).</p>
+<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li>外观编码器<ol>
+<li>常用的是clip编码,但是提取的信息有限,所以使用了类似ControlNet结构;</li>
+<li>与ControlNet不一样的是,使用了Upsample插入信号,能够提供高保真度的结果,但是模型更大;</li>
+<li>DownSample注入方式,是为模型提供更多的信号特征;</li>
+</ol>
+</li>
+<li>OpenPose（骨架）改为 DensePose,DensePose 提供的 3D 先验比 2D 骨架更准确，减少了“手长在背上”这种逻辑错误。</li>
+</ol>
+<h2 id="1-9-2024-03-Champ"><a href="#1-9-2024-03-Champ" class="headerlink" title="1.9. 2024.03 Champ"></a>1.9. 2024.03 Champ</h2><h2 id="1-10-2024-06-MimicMotion"><a href="#1-10-2024-06-MimicMotion" class="headerlink" title="1.10. 2024.06 MimicMotion"></a>1.10. 2024.06 MimicMotion</h2><h2 id="1-11-2024-12-Animate-Anyone-2"><a href="#1-11-2024-12-Animate-Anyone-2" class="headerlink" title="1.11. 2024.12 Animate Anyone 2"></a>1.11. 2024.12 Animate Anyone 2</h2><h2 id="1-12-2025-02-HumanDiT"><a href="#1-12-2025-02-HumanDiT" class="headerlink" title="1.12. 2025.02 HumanDiT"></a>1.12. 2025.02 HumanDiT</h2><h2 id="1-13-2023-12-MagicAnimate"><a href="#1-13-2023-12-MagicAnimate" class="headerlink" title="1.13. 2023.12  MagicAnimate"></a>1.13. 2023.12  MagicAnimate</h2><h3 id="项目地址：https-github-com-ssj9596-One-to-All-Animation"><a href="#项目地址：https-github-com-ssj9596-One-to-All-Animation" class="headerlink" title="项目地址：https://github.com/ssj9596/One-to-All-Animation"></a>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ssj9596/One-to-All-Animation">https://github.com/ssj9596/One-to-All-Animation</a></h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2511.22940v2/x3.png">https://arxiv.org/html/2511.22940v2/x3.png</a></p>
+<h3 id="创新点-1"><a href="#创新点-1" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li>unified occluded-input format（Outpainting Preprocess）<br>传统的模型往往通过简单的拼接或 Attention 来注入参考图，这在人体比例不一致时容易崩溃。</li>
+</ol>
+<p>创新点：通过将多样化布局的参考图转化为统一的“遮挡输入（随机mask作为数据）”格式进行训练，模型学会了如何从任意构图（如仅有上半身的参考图）生成出符合驱动姿态的全景动作（如全身跳舞），极大地提升了布局的鲁棒性。</p>
+<ol start="2">
+<li>身份鲁棒的姿态控制（Identity-Robust Pose Control）<br>在人脸驱动中，如果驱动视频的脸型和参考图不一致，生成结果往往会变形。</li>
+</ol>
+<p>创新点：引入了外观与骨骼解耦的机制，人为制造差异。通过改进 Pose Guider，弱化了姿态信号中隐含的特定人物骨骼结构特征。缓解了人脸姿态的过拟合（Overfitting）问题，确保即使驱动者的脸型较方，而参考图角色脸型较尖，生成的动画依然能保持参考图原有的身份特征。</p>
+<ol start="3">
+<li>混合参考融合注意力（Hybrid Reference Fusion Attention）<br>为了在不同分辨率和长短不一的视频序列中保持特征一致性。</li>
+</ol>
+<p>创新点：设计了一个专门的 Reference Extractor（参考提取器），利用混合注意力机制（Hybrid Attention）来注入身份信息。它能从各种比例、分辨率（RoPE3D编码driven video，与reference Image 做cross attention时，frame的编码统一为0，因为ref没有frame参考）提取出深层的 ID 语义，支持跨尺度（如从特写参考图生成远景动画）的迁移。</p>
+<ol start="4">
+<li><p>令牌替换策略（Token Replace Strategy）<br>针对长视频生成的连贯性问题。去噪顺序：</p>
+<ol>
+<li>完成第 1-81 帧的全部去噪迭代。</li>
+<li>提取第 80-81 帧的去噪后 Latent Token。</li>
+<li>将其作为“历史记忆”输入给第 82-162 帧的推理进程。</li>
+<li>开始下一轮去噪。</li>
+</ol>
+</li>
+</ol>
+<p>效果：在生成超长视频时，通过动态替换潜在空间的 Token，保证了长时序下的背景稳定性和人物身份的一致性，减少了视频中途“变脸”或背景闪烁的情况。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>总结</div>
+      <div>http://example.com/2026/01/07/复习总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 7, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/17/hello-world/" title="Hello World">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/02/Qwen-VL%E8%BF%9B%E5%8C%96/" title="Qwen-VL进化">
+                        <span class="hidden-mobile">Qwen-VL进化</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
